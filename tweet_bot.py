@@ -30,6 +30,5 @@ def check_length(tweet_candidate):
 	return length >= 15 and length <= 140
 
 if __name__ == '__main__':
-	print create_tweet()
-	#main()
+	main()
 	
