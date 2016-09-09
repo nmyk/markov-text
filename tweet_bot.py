@@ -23,8 +23,13 @@ def create_tweet():
 	db = Db(sqlite3.connect(NAME + '.db'), Sql())
 	generator = Generator(NAME, db, Rnd())
 	tweet_candidate = generator.generate(WORD_SEPARATOR)
-	return tweet_candidate if len(tweet_candidate) <= 140 else create_tweet()
+	return tweet_candidate if check_length(tweet_candidate)  else create_tweet()
+
+def check_length(tweet_candidate):
+	length = len(tweet_candidate)
+	return length >= 15 and length <= 140
 
 if __name__ == '__main__':
-	main()
+	print create_tweet()
+	#main()
 	
